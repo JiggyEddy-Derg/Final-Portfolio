@@ -42,43 +42,37 @@
             </section>  
             
         
-        
-            <section class="w3-row"> <!-- In this row, we  have the w3-row class only, which defines 
-                a padding-less container. Without the w3-container property, you don't get padding 
-                between the elements. -->
-                
-                <article class="w3-col s12 m4 l4">
-                    <h4>Coney Island</h4>
-                    <p><img src="assets/Coneyisland-72dpi.jpg" alt="Coney Island Graphic"></p>
-                </article>
-                <article class="w3-col s12 m4 l4">
-                    <h4><a title="mantis">Being out of place</a></h4>
-                    <p><img src="assets/DeerART-72dpi.jpg" alt="Being out of place"></p>
-                </article>
-                <article class="w3-col s12 m4 l4">
-                    <h4>Pondering Dragon</h4>
-                    <p><img src="assets/Dragon_sad-72dpi.jpg" alt="Sad Dragon"></p>
-                </article>
-            </section>
-        
+        <article class="w3-col s12 m4 l4">
+    <h4>Coney Island</h4>
+    <p><img src="assets/Coneyisland-72dpi.jpg" alt="Coney Island" onclick="openModal(this)"></p>
+</article>
+
+<article class="w3-col s12 m4 l4">
+    <h4>Being out of place</h4>
+    <p><img src="assets/DeerART-72dpi.jpg" alt="Being out of place" onclick="openModal(this)"></p>
+</article>
+
+<article class="w3-col s12 m4 l4">
+    <h4>Pondering Dragon</h4>
+    <p><img src="assets/Dragon_sad-72dpi.jpg" alt="Sad Dragon" onclick="openModal(this)"></p>
+</article>
+
          
 
-            <section class="w3-container"> <!-- While the w3-row class defines a padding-less 
-                container, when you also have w3-container, it adds 16-pixel padding around the 
-                entire row, but not between the contained elements -->
-                <article class="w3-col s12 m4 l4">
-                    <h4>Shiba Inu Vector</h4>
-                    <p><img src="assets/Shiba_Vector-72dpi.jpg" alt="Shiba Inu vectorart"></p>
-                </article>
-                <article class="w3-col s12 m4 l4">
-                    <h4><a title="mantis">Know Your Rights</a></h4>
-                    <p><img src="assets/KnowUrRights-72dpi.jpg" alt="Know Your Rights Sticker"></p>
-                </article>
-                <article class="w3-col s12 m4 l4">
-                    <h4>Dragon Sketch</h4>
-                    <p><img src="assets/DragonSketch-72dpi.jpg" alt="Sketch of a dragon"></p>
-                </article>
-            </section>
+     <article class="w3-col s12 m4 l4">
+    <h4>Dragon Sketch</h4>
+    <p><img src="assets/DragonSketch-72dpi.jpg" alt="Dragon Sketch" onclick="openModal(this)"></p>
+</article>
+
+<article class="w3-col s12 m4 l4">
+    <h4>Being out of place</h4>
+    <p><img src="assets/KnowUrRights-72dpi.jpg" alt="Know Your Rights" onclick="openModal(this)"></p>
+</article>
+
+<article class="w3-col s12 m4 l4">
+    <h4>Pondering Dragon</h4>
+    <p><img src="assets/Shiba_Vector-72dpi.jpg" alt="Shiba Inu Vector" onclick="openModal(this)"></p>
+</article>
     
             
 
@@ -86,6 +80,15 @@
             <p>&copy; 2025 Edward Salguero</p>
             </footer>
         </div>
+        <!-- Image Modal -->
+<div id="imgModal" class="w3-modal" onclick="this.style.display='none'">
+  <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+  <div class="w3-modal-content w3-animate-zoom w3-center">
+    <img id="modalImg" class="w3-image">
+    <p id="modalCaption" class="w3-padding"></p>
+  </div>
+</div>
+
          <script>
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
@@ -94,6 +97,16 @@ hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("active");
   navMenu.classList.toggle("active");
 });
+
+function openModal(img) {
+  var modal = document.getElementById("imgModal");
+  var modalImg = document.getElementById("modalImg");
+  var caption = document.getElementById("modalCaption");
+
+  modal.style.display = "block";
+  modalImg.src = img.src;
+  caption.innerHTML = img.alt;
+}
 </script>
 	</body>
 </html>
